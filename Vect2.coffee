@@ -331,7 +331,7 @@ class Vect2
     Math.acos @dot vector1, vector2
 
 
-  # Sets the vector by copying (no reference is kept).
+  # Sets vector's x, y components.
   #
   # Possible arguments:
   # * `x, y` - numbers to set
@@ -347,6 +347,7 @@ class Vect2
   setZero: ->
     @x = 0
     @y = 0
+    this
 
 
   # Returns a copy of the vector. Use this when you want to avoid creating
