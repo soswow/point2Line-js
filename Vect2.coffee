@@ -14,14 +14,15 @@ class Vect2
   # new Vect2(vect) - Vector to copy into new vector
   # new Vect2(x, y) - x,y components of new vector
   constructor: ->
-    switch arguments.length
-      when 1
-        if typeof arguments[0] is 'number'
-          angle = arguments[0]
-          @set Math.cos(angle), Math.sin(angle)
-        else
-          @set arguments[0]
-      when 2 then @set arguments[0], arguments[1]
+    [@x, @y] =
+      switch arguments.length
+        when 1
+          if typeof arguments[0] is 'number'
+            angle = arguments[0]
+            [Math.cos(angle), Math.sin(angle)]
+          else
+            [arguments[0].x, arguments[0].y]
+        when 2 then arguments
 
   # Returns true if the vector is zero.
   isZero: ->
